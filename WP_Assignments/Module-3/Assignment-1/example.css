@@ -1,0 +1,30 @@
+.hello{
+   background-color: brown; 
+}
+.name{
+   background-color: #66ccff;
+   border-radius: 25px;
+   padding: 5px;
+}
+img {
+   border-radius: 50px;
+ }
+ table, th, td{
+   border-radius: 25px;
+   text-align: center;
+ }
+ .margin{
+    border-style: solid;
+    border-width: 5px;
+    margin: 20px;
+    border-color: #66ccff;
+    border-radius: 25px;
+
+ }
+ .a{
+   background-color: #66ccff;
+ }
+ h4,li{
+    text-align: center;
+    list-style-type: none;
+ }
