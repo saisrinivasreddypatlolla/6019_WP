@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>
+            module-5_assignment-1
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+    <body style="background-color:#ccffff;">
+        <div class="row">
+        <h1 style="text-align:center">Learning By Doing</h1>
+    </div>
+        <div class="container">
+            <div class="row" style="height:30%; background-color:yellow">
+                <div><p id="questions"></p></div>
+                <div><button type="button" onclick="hint()" >Hint</button>
+                    <div id="hints"></div>
+                </div>
+                <div>
+                        <form action="">
+                    <input type="radio" name="True" onclick="validate(True)">True</input><br>
+                    <input type="radio" name="False" onclick="validate(False)">False</input>
+                        </form>
+                </div>    
+            </div>
+            <div class="row" style="height:30%; background-color:rebeccapurple">
+                
+            <h1>answer</h1></div>
+            <div class="row" style="height:30%; background-color:red">
+
+                <button style="float:left">next</button>
+                <button style="float:right">prev</button>
+            <!-- </center> -->
+            </div>
+        </div>
+        <script>
+            function hint(){
+                document.getElementById("hints").innerHTML='<div class="alert alert-warning alert-dismissible"><a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><strong>Warning!</strong>'+ val.abc[0].hints+'</div>';
+            }
+            function validate(){
+                
+            }
+                    
+var data='{"abc": [{"question":"Capital of India is New Delhi","option1":"True","option2":"False","hints":"Clue is New"},{"question":"Capital of Telangana is Amaravathi","option1":"True","option2":"False","hints":"It also called as Bhagyanagaram"}]}';
+        var val = JSON.parse(data);
+        console.log(val.abc[0].question);
+        document.getElementById("questions").innerHTML=val.abc[0].question;
+        </script>
+        
+    </body>
+</html>

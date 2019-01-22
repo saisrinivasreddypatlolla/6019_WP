@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>
+            QUIZ
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row heading">
+                <h1>
+                    LEARNING BY DOING
+                </h1>
+            </div>
+            <div class="questions">
+                <p id="question">
+
+                </p>
+                <button type="button" class="btn btn-info" onclick="warning()"> Hint </button>
+                <br>
+                <div id="hint" class="alert alert-info" style="display:none"></div>
+                <div id="option">
+                        
+                </div>
+            
+            </div>
+            
+    
+        <div class = "row">
+        <button type="button" id = "prev" class="btn btn-info" style= "float:left; display:none" onclick = "nextQue(--i)"> Previous Question </button>
+        <button type="button" id = "next" class="btn btn-info" style= "float:right;" onclick = "nextQue(++i)"> Next Question </button></div>
+        </div>
+        <div id="reset">
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+    </body>
+</html>
