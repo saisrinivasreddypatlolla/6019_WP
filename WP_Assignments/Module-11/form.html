@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>Comments</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="head">
+            <h1>COMMENT SECTION</h1>
+        </div>
+        
+            <div class="container responsive">
+                <div>
+                    <form name="form1" onsubmit=" return required();">
+                        <ul class="form-style-1">
+                            <li><label>Full Name <span class="required">*</span></label><input id="userInput" type="text" name="field1" class="field-divided" placeholder="Name" required />
+                
+                            <li>
+                                <label>Comment <span class="required">*</span></label>
+                                <textarea name="field2" id="field5" class="field-long field-textarea" placeholder="comments....." required></textarea>
+                            </li>
+                            <li>
+                                <label>Password <span class="required">*</span></label>
+                                <input name="field3" type="password" placeholder="password" required>
+                            </li>
+                            <li>
+                                <input type="submit" value="Submit"/>
+                            </li>
+                        </ul>
+                        </form>
+                </div>
+                <div>
+                    <h2>Comments</h2><br>
+                    <textarea name="comment" id="comm" cols="30" rows="10" class="com"></textarea>
+
+                </div>
+            </div>
+                <script src="script.js"></script>
+    </body>
+</html>

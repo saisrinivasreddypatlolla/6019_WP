@@ -1,0 +1,21 @@
+.com{
+    width: 90%;
+  padding: 25px;
+  margin: 25px;
+}
+ul {
+    list-style-type: none;
+  }
+.head{
+    text-align: center;
+}
+body{
+    background-color: aqua;
+}
+.container{
+    background-color: #ccffff;
+    padding: 5%;
+}
+input{
+    margin: 5px;
+}
