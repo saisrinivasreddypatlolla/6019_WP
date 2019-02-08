@@ -1,0 +1,73 @@
+<br><br>	
+<div class="container">
+    <div class="row">
+    	<div class="col-md-3">
+			<div class="thumbnail" style="height:325px; width:250px;">
+        
+			  <img src="assets\img\{{data.img}}" class="img-responsive" style="object-fit:cover;max-width:100;max-height:100%;">
+      </div>
+    </div>
+      <div class="caption">
+					<!-- <div class="row"> -->
+            <div class = "col-md-1"></div>
+						<div class="col-md-8" align="center">
+				<h4 class="text-center"><span class="label label-info">{{data.productTitle}}</span></h4>
+
+              <h3>Description</h3>
+              <ul *ngFor = "let description of data.productDescription">
+                <li> {{description }}</li>
+              </ul>
+              <p>Price: ${{data.price}}</p>
+						  <p>Quantity: {{data.quantity}}</p>
+          </div>
+					<!-- </div> -->
+      </div>
+		</div><br>
+
+        <div class="row">
+            <button (click) = "addToCart(data.prodId)" class="btn btn-primary btn-product"><span class="glyphicon glyphicon-shopping-cart"></span><span class="popuptext" id="myPopup">Add</span>ToCart</button>&nbsp;
+           <a routerLink = "/checkout" (click) = "addToCart(data.prodId)" class="btn btn-primary btn-product"><span class="glyphicon glyphicon-flash"></span>Buy</a>&nbsp;			
+           <a class="btn btn-primary btn-product" (click)="reviews()" style="color:white;"><span class="glyphicon glyphicon-star"></span>ReviewsandRatings</a>&nbsp;
+        </div>  
+        <!-- </div> -->
+	<!-- </div> -->
+	 
+</div>
+<div class="container"><div *ngIf="reviewRQ">
+    <form>
+            UserName: <input type="text" name="uname" [(ngModel)]="uname">
+            Comments: <textarea name="comments" id="" cols="30" rows="10" [(ngModel)]="comments"></textarea>
+            Rating: <input type = "number" min = "1" max = "5" [(ngModel)] = "rating">
+    </form>
+      <button (click)="reviewSubmit()">Submit</button>
+  </div>
+  {{uname}}<br>
+  {{comments}}</div>
+  <div *ngIf="review">
+    <div class="container">
+        <form>
+            <div class="form-group">
+              <!-- <label>User Name</label> -->
+              User Name: <input type="text" name="uname" [(ngModel)]="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">User Name is required</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <!-- <label>Comments</label> -->
+              Comments: <textarea name="Comments" id="" [(ngModel)]="ucomment" class="form-control" cols="15" rows="8"></textarea>
+              <!-- <input type="textarea" formControlName="Comments" class="form-control" style="width:100%;height:70px;overflow:scroll;"> -->
+          </div>
+          </form>
+          <button type="button" class="form-control" (click)="reviewSubmits()">Submit</button>
+    </div>
+  </div>
+  <div *ngIf="reviewSubmit">
+    <div class="container">
+        <!-- <label>UserName: </label> -->
+        UserName: <h5><strong>{{username}}</strong></h5>
+        <!-- <label></label> -->
+        Comments: <p>{{ucomment}}</p>
+    </div>  
+  </div>
+

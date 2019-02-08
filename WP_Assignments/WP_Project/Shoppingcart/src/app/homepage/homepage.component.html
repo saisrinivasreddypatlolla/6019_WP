@@ -1,0 +1,40 @@
+<br><br>
+<div class="form-group form-group-lg row" align = "center">
+
+    <div class="col-sm-4"></div>
+
+    <div class="col-sm-4">
+    <input [(ngModel)] = "filterName" placeholder = "&#8981;" type="search" class
+    class="form-control" style="padding: 20px 10px; line-height: px;">
+    </div>
+
+    <div class="col-sm-4"></div>
+</div>
+<!-- <div style="height:5%" ></div> -->
+  <!-- {{cardArray | json}} -->
+
+<mat-grid-list cols="2" rowHeight="2:1" *ngIf="filterName">
+  <div>
+      <div *ngFor = 'let i of prodT | filterByName: filterName'>
+          <mat-grid-tile routerLink="/product/{{i}}"> 
+              <img src = "assets\img\{{cards[i].img}}"  
+              style="object-fit:cover;max-height:100%;max-width:100%;border-radius:8px;">
+              <p> {{cards[i].productTitle}}</p>
+          </mat-grid-tile>
+        </div>
+  </div>
+  
+</mat-grid-list>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+<div *ngIf="!filterName">
+<div *ngFor = 'let card of cards;index as i' >
+    <mat-grid-tile routerLink="/product/{{i}}"> 
+      <img src = "assets\img\{{card.img}}"  
+      style="object-fit:cover;max-height:100%;max-width:100%;border-radius:8px;">
+      <!-- <p> {{card.productTitle}}</p> -->
+  </mat-grid-tile>
+  
+</div>
+</div>
+</mat-grid-list>
