@@ -1,0 +1,11 @@
+<div style="height:5%" ></div>
+<mat-grid-list cols="2" rowHeight="2:1">
+  <div *ngFor = "let card of cardArray;index as i">
+    <mat-grid-tile routerLink="/product/{{i}}"> 
+        <img src = "assets\img\{{card.img}}"  
+        style="object-fit:cover;max-height:100%;max-width:100%;border-radius:8px;">
+    </mat-grid-tile>
+  </div>
+</mat-grid-list>
+
+

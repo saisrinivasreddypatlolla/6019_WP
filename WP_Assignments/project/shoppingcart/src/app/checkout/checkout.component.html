@@ -1,0 +1,121 @@
+<div *ngIf="checkOutPage">
+    <div class = "container">
+        <div class = "row">
+      
+      <!--==========================================================================================-->
+          <div class = "col-sm-6" style="height:40%;max-width: 50%">
+            <!-- Heading -->
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">Your cart</span>
+                <span class="badge badge-secondary badge-pill">{{totalQuantity}}</span>
+              </h4>
+      
+              <!-- Cart -->
+              <ul class="list-group mb-3 z-depth-1" *ngFor = "let product of cartsArray">
+                <li class="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <p class="my-0">{{product.productTitle}}</p>
+                    <p>Quantity: {{ product.uRQ}}</p>
+                  </div>
+                  <span class="text-muted">${{product.price}}</span>
+                </li>
+                
+              </ul>
+              <!-- Cart -->
+      
+              <!-- Promo code -->
+              <form class="card p-2">
+                <!-- <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                  <div class="input-group-append">
+                    <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
+                  </div>
+                </div> -->
+                <button class="btn btn-secondary btn-md waves-effect m-0" 
+                style="background-color:rgb(52,58,64);color:white;" 
+                type="button" disabled><strong>Total$ {{totalprice}} </strong></button>
+              </form>
+           </div>
+      <!--==========================================================================================-->
+          <div class = "col-sm-6" style="max-height:40%;max-width: 50%">
+                  <form class="form-horizontal" role="form">
+            <fieldset>
+      
+              <!-- Form Name -->
+              <legend>Address Details</legend>
+      
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+                <div class="col-sm-10">
+                  <input type="text" name="addL2" placeholder="Address Line 1" class="form-control" [(ngModel)]="addL1">
+                </div>
+              </div>
+      
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+                <div class="col-sm-10">
+                  <input type="text" name="addL2" placeholder="Address Line 2" class="form-control" [(ngModel)]="addL2">
+                </div>
+              </div>
+      
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">City</label>
+                <div class="col-sm-10">
+                  <input type="text" name="city" placeholder="City" class="form-control" [(ngModel)]="city">
+                </div>
+              </div>
+      
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">State</label>
+                <div class="col-sm-4">
+                  <input type="text" name="state" placeholder="State" class="form-control" [(ngModel)]="state">
+                </div>
+      
+                <label class="col-sm-2 control-label" for="textinput">Postcode</label>
+                <div class="col-sm-4">
+                  <input type="text" name="postcode" placeholder="Post Code" class="form-control" [(ngModel)]="postcode">
+                </div>
+              </div>
+              <!-- Text input-->
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="textinput">Country</label>
+                <div class="col-sm-10">
+                  <input type="text" name="country" placeholder="Country" class="form-control" [(ngModel)]="country">
+                </div>
+              </div>          
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <div class="pull-right">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </div>
+              </div>
+      
+            </fieldset>
+            <!-- button is inside the form. keep out of form if necessary -->
+            <button class="btn btn-primary btn-lg btn-block waves-effect waves-light" (click)="confirm()" type="submit">Continue to Confirm</button>
+          </form>
+          </div>
+        </div>
+      
+      </div>
+      
+</div>
+<div *ngIf="confirmPage">
+    <div class="container" align = "center">
+        <div class = "row">
+          <div class = "col-sm-12">
+            <img src="../../assets/img/ss.png" class="img-responsive" alt="Order Placed" style="object-fit:cover;max-width:75%;max-height:75%;">	
+          <!-- </div> -->
+        </div>
+        <!-- <div class = "row"> -->
+          <div class = "col-sm-12" >
+            <button routerLink="/homepage" class="btn btn-primary btn-product" style="background-color:rgb(52,58,64);" >Click here to Shop</button>
+          </div>
+        </div>
+      </div>
+</div>
