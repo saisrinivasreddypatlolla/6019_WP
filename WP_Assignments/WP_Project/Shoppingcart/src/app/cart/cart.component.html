@@ -25,7 +25,7 @@
 									</td>
 									<td data-th="Price">${{product.price}}</td>
 									<td data-th="Quantity">
-										<input type="number" class="form-control text-center" min="1" (change)="totalPriceF()" [(ngModel)]="product.uRQ">
+										<input type="number" class="form-control text-center" min="1" max="{{product.quantity}}" (change)="totalPriceF()" [(ngModel)]="product.uRQ">
 									</td>
 									<td data-th="Subtotal" class="text-center"></td>
 									<td class="actions" data-th="">

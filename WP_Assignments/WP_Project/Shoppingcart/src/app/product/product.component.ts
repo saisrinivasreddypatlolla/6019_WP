@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CardService } from '../card.service';
 import { CartService } from '../cart.service';
 import Swal from 'sweetalert2';
+import { defineBase } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-product',
@@ -15,17 +16,22 @@ export class ProductComponent implements OnInit {
   reviewRQ=false;
   userLogin=false;
   uname:string;
-  comments:string;
-  ratings: number;
+  ucomment:string;
+  rating: string;
   review=false;
-  reviewSubmit=false;
+  // reviewSubmit=false;
   constructor(private route: ActivatedRoute,
     private cardService: CardService,
-    private cartService: CartService) { }
+    private cartService: CartService) {
+      console.log(this.rating);
+     }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
-    this.cardService.getCardsFromService().subscribe(productslist => this.data = productslist[id]);
+    this.cardService.getCardsFromService().subscribe(productslist => {this.data = productslist[id];
+      console.log(this.data);
+    });
+    
   }
 
   addToCart(num: number) {
@@ -42,10 +48,19 @@ export class ProductComponent implements OnInit {
   }
   reviews(){
     this.review=true;
-    this.reviewSubmit=false;
+    // this.reviewSubmit=false;
   }
-  reviewSubmits(){
+  // reviewSubmits(){
+  //   this.review=false;
+  //   this.reviewSubmit=true;
+  // }
+  serviceReview(){
+
     this.review=false;
-    this.reviewSubmit=true;
+    // this.reviewSubmit=true;
+    var rev={body:this.ucomment,rating:this.rating,user:this.uname,id:this.data.prodId};
+    this.cardService.putReviews(rev);
+    window.location.reload();
+    
   }
 }

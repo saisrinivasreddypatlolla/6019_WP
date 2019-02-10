@@ -4,12 +4,16 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import {NgForm} from '@angular/forms';
 import { UserService } from '../user.service';
 import {Router} from '@angular/router';
+import { CartService } from '../cart.service';
+// import {CheckoutComponent} from '../checkout/checkout.component';
+// import {CheckoutComponent} from '../checkout/checkout.component';
 
 
 @Component({
   selector: 'app-userpage',
   templateUrl: './userpage.component.html',
-  styleUrls: ['./userpage.component.css']
+  styleUrls: ['./userpage.component.css'],
+  // providers:['']
 })
 export class UserpageComponent implements OnInit {
   registerForm : FormGroup;
@@ -25,7 +29,7 @@ export class UserpageComponent implements OnInit {
   login=true;
   loginredirect: boolean;
  
-  constructor(private us:UserService,
+  constructor(private us:UserService,private cart:CartService,
     private router:Router) {}
 
   ngOnInit() {
@@ -50,6 +54,7 @@ export class UserpageComponent implements OnInit {
     {
       console.log("hh");
       this.us.isLoggedIn = true;
+      this.cart.getUserEmail(this.emaillg);
       this.router.navigate(['/homepage']);
     } 
   else {

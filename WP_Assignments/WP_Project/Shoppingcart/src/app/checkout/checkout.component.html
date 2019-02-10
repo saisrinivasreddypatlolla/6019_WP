@@ -1,4 +1,5 @@
-<div class = "container">
+<div *ngIf="checkOutPage">
+  <div class = "container">
   <div class = "row">
 
 <!--==========================================================================================-->
@@ -24,12 +25,15 @@
 
         <!-- Promo code -->
         <form class="card p-2">
-          <div class="input-group">
+          <!-- <div class="input-group">
             <input type="text" class="form-control" placeholder="Promo code" aria-label="Recipient's username" aria-describedby="basic-addon2">
             <div class="input-group-append">
               <button class="btn btn-secondary btn-md waves-effect m-0" type="button">Redeem</button>
             </div>
-          </div>
+          </div> -->
+          <button class="btn btn-secondary btn-md waves-effect m-0" 
+                style="background-color:rgb(52,58,64);color:white;" 
+                type="button" disabled><strong>Total$ {{totalprice}} </strong></button>
         </form>
      </div>
 <!--==========================================================================================-->
@@ -43,8 +47,8 @@
         <!-- Text input-->
         <div class="form-group">
           <label class="col-sm-2 control-label" for="textinput">Address:</label>
-          <div class="col-sm-10">
-            <input type="text" placeholder="Address here.." class="form-control" [(ngModel)] = "address" [ngModelOptions]="{standalone: true}">
+          <div id="formId" class="col-sm-10">
+            <input type="text" id="add" placeholder="Address here.." class="form-control" [(ngModel)] = "address" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
 
@@ -52,43 +56,58 @@
         <!-- Text input-->
         <div class="form-group">
           <label class="col-sm-2 control-label" for="textinput">City</label>
-          <div class="col-sm-10">
-            <input type="text" placeholder="City" class="form-control" [(ngModel)] = "city" [ngModelOptions]="{standalone: true}">
+          <div id="formId" class="col-sm-10">
+            <input type="text" placeholder="City" id="city" class="form-control" [(ngModel)] = "city" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
 
         <!-- Text input-->
         <div class="form-group">
           <label class="col-sm-2 control-label" for="textinput">State</label>
-          <div class="col-sm-4">
-            <input type="text" placeholder="State" class="form-control" [(ngModel)] = "state" [ngModelOptions]="{standalone: true}">
+          <div id="formId" class="col-sm-4">
+            <input type="text" placeholder="State" id="state" class="form-control" [(ngModel)] = "state" [ngModelOptions]="{standalone: true}">
           </div>
 
           <label class="col-sm-2 control-label" for="textinput">Postcode</label>
-          <div class="col-sm-4">
-            <input type="text" placeholder="Post Code" class="form-control" [(ngModel)] = "post" [ngModelOptions]="{standalone: true}">
+          <div id="formId" class="col-sm-4">
+            <input type="text" placeholder="Post Code" id="pos" class="form-control" [(ngModel)] = "post" [ngModelOptions]="{standalone: true}">
           </div>
         </div>
         <!-- Text input-->
         <div class="form-group">
           <label class="col-sm-2 control-label" for="textinput">Country</label>
-          <div class="col-sm-10">
-            <input type="text" placeholder="Country" class="form-control" [(ngModel)] = "country" [ngModelOptions]="{standalone: true}">
+          <div id="formId" class="col-sm-10">
+            <input type="text" placeholder="Country" id="con" class="form-control" [(ngModel)] = "country" [ngModelOptions]="{standalone: true}">
           </div>
         </div>          
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
             <div class="pull-right">
-              <button type="submit" class="btn btn-primary">Save</button>
+              <button type="submit" class="btn btn-primary" (click)="saveAddress()">Save</button>
             </div>
           </div>
         </div>
 
       </fieldset>
       <!-- button is inside the form. keep out of form if necessary -->
-      <button class="btn btn-primary btn-lg btn-block waves-effect waves-light" type="submit">Continue to Payment</button>
+      <button class="btn btn-primary btn-lg btn-block waves-effect waves-light" (click)="confirm()"type="submit">Continue to Payment</button>
     </form>
     </div>
   </div>
 <!-- </div> -->
+</div>
+</div>
+<div *ngIf="confirmPage">
+    <div class="container" align = "center">
+        <div class = "row">
+          <div class = "col-sm-12">
+            <img src="../../assets/img/ss.png" class="img-responsive" alt="Order Placed" style="object-fit:cover;max-width:75%;max-height:75%;">	
+          <!-- </div> -->
+        </div>
+        <!-- <div class = "row"> -->
+          <div class = "col-sm-12" >
+            <button routerLink="/homepage" class="btn btn-primary btn-product" style="background-color:rgb(52,58,64);" >Click here to Shop</button>
+          </div>
+        </div>
+      </div>
 </div>

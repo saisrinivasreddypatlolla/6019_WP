@@ -23,4 +23,9 @@ export class CardService {
   // addtoCartInService(num: number) {
   //   this.cartArray.push(CARDS[num - 1]);
   // }
+  rvs;
+  putReviews(rev){
+    console.log("Putting Revs")
+    this.http.put('http://127.0.0.1:3000/putRevs',rev).subscribe(x => this.rvs=x);
+  }
 }
